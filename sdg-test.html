@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="icon" type="image/png" href="assets/images/sdg.png" sizes="32x32">
+	<title>SDG TAB TEST</title>
+
+	<script type='text/javascript' src='assets/scripts/ie11-polyfill.js'></script>
+	<script type='text/javascript' src='assets/scripts/tabs.js'></script>
+	<link rel="stylesheet" type="text/css" href='assets/css/main.css' />
+</head>
+<body>
+	<ul id="tabs-h" class="tabs">
+		<li data-title="ideskinc">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed ullamcorper sodales lacus nec mattis. Maecenas porta nulla nisl, sed fringilla orci luctus congue. Sed lorem justo, blandit et velit a, varius facilisis lectus. Aliquam suscipit tincidunt neque, ut sodales lorem efficitur in. Aliquam consectetur tincidunt orci eget efficitur. Nulla volutpat metus ut libero vestibulum, quis ornare elit ultrices. Pellentesque vel suscipit tellus, nec pharetra orci.</li>
+		<li data-title="Honda">Donec volutpat risus nulla, ut porttitor ex consectetur vitae. Vestibulum volutpat, nisi at placerat malesuada, ante turpis posuere mi, in dictum diam massa eget sapien. Mauris in vulputate purus, at pulvinar erat. Integer molestie enim ligula, in tristique eros ultrices vel. Integer imperdiet luctus risus, et rhoncus lectus tincidunt nec. Donec eget neque egestas, semper enim eget, auctor ligula. Suspendisse dapibus ultricies mauris, nec mattis erat venenatis in. Suspendisse potenti.</li>
+		<li data-title="Resolve IO">
+			<div class="percent-container">
+				<div class="type-block">
+					<div class="percentage">
+						50%
+					</div>
+					<div class="mat-type">
+						cashmere
+					</div>
+				</div>
+				<div class="type-block">
+					<div class="percentage">
+						46%
+					</div>
+					<div class="mat-type">
+						wool
+					</div>
+				</div>
+				<div class="type-block">
+					<div class="percentage">
+						4%
+					</div>
+					<div class="mat-type">
+						modal
+					</div>
+				</div>
+			</div>
+			<div class="line"></div>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nibh arcu, ultricies nec purus quis, consequat luctus orci. Sed non mi nisi. Donec vulputate erat odio, eget lacinia lectus accumsan sed. Phasellus diam lorem, ullamcorper quis velit a, ultricies facilisis turpis. Sed laoreet efficitur odio, ut consequat arcu iaculis non. Quisque lectus ligula, venenatis quis ullamcorper vitae, euismod in nisi. Sed sed arcu tortor. Phasellus a iaculis metus, sed suscipit dui. Nunc mollis, ipsum at tristique dignissim, enim mi sodales nulla, sed dapibus lorem tortor et nisi. </li>
+	</ul>
+	<script type='text/javascript'>
+		document.addEventListener('DOMContentLoaded', function() {
+			new VanillaTabs({
+				'selector': '#tabs-h',	// default is ".tabs"
+				'type': 'horizontal',		// can be horizontal / vertical / accordion
+				'responsiveBreak': 767,		// tabs become accordion on this device width
+				'activeIndex' : 0			// active tab index (starts from 0 ). Can be -1 for accordions.
+			});
+
+			document.querySelector('.tabs__nav_link').classList.add('first'); // ADDING CLASS FOR THE FIRST 'LINK' (for border style);
+
+			/************************************************
+			***** MY SCRIPT TO MAKE PLUS/MINUS BUTTONS  *****
+			************************************************/
+			const plusBtn = document.querySelectorAll('.tabs.style__horizontal.tabs__initialized .tabs__content');
+			const makeBtn = function() {
+				if (plusBtn) {
+					[].forEach.call(plusBtn, function(e,i) {
+						console.log(e);
+
+						if (!e.querySelector('button')) {
+							let btn = document.createElement('button'),
+								span1 = document.createElement('span'),
+								span2 = document.createElement('span');
+
+							btn.appendChild(span1);
+							btn.appendChild(span2);
+
+							e.appendChild(btn);
+						}
+					});
+				}
+			};
+			makeBtn(); // <----IIFE
+
+			/**************************************************
+			*****  MY SCRIPT TO GIVE BUTTON ACTIVE CLASS  *****
+			**************************************************/
+			const activeBtn = function() {
+				[].forEach.call(plusBtn, function(e,i) {
+					e.classList.contains('is__active') ? e.querySelector('button').classList.add('active') : e.querySelector('button').classList.remove('active');
+				});
+			};
+			activeBtn(); // <----IIFE
+
+			/********************************
+			*****  EVENTLISTENERS HERE  *****
+			********************************/
+			window.addEventListener('resize', makeBtn, false);
+			window.addEventListener('click', activeBtn, false);
+		});
+	</script>
+</body>
+</html>
