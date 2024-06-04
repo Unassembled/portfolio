@@ -322,18 +322,10 @@ button.active span:last-of-type {
 
 
 @keyframes gradient {
-  0% {
-    background: radial-gradient(circle at center, rgba( 125, 125 , 125, 0 ) 0%, #fff 0%, #fff 100%);
-  }
-  25% {
-    background: radial-gradient(circle at center, rgba( 125, 125, 125, 0.3 ) 24%, #fff 25%, #fff 100%);
-  }
-  50% {
-    background: radial-gradient(circle at center, rgba( 125, 125, 125, 0.5 ) 49%, #fff 50%, #fff 100%);
-  }
-  75% {
-    background: radial-gradient(circle at center, rgba( 125, 125, 125, 0.8 ) 74%, #fff 75%, #fff 100%);
-  }
+  0% {background: radial-gradient(circle at center, rgba( 125, 125 , 125, 0 ) 0%, #fff 0%, #fff 100%);}
+  25% {background: radial-gradient(circle at center, rgba( 125, 125, 125, 0.3 ) 24%, #fff 25%, #fff 100%);}
+  50% {background: radial-gradient(circle at center, rgba( 125, 125, 125, 0.5 ) 49%, #fff 50%, #fff 100%);}
+  75% {background: radial-gradient(circle at center, rgba( 125, 125, 125, 0.8 ) 74%, #fff 75%, #fff 100%);}
   100% {
     color: #fff;
     background: radial-gradient(circle at center, #ccc 99%, #fff 100%, #fff 100%);
